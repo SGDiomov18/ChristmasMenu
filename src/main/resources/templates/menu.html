@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+</head>
+<body>
+
+<form th:object="${formMenuBean}" th:action="@{/}" th:method="post">
+    <label for="starters">Starter:</label>
+    <select id="starters" th:field="*{starter}" >
+        <option th:each="starter : ${starters}" th:value="${starter.getName()}" th:text="${starter.getName()}"></option>
+    </select>
+    <label for="startersWeight"> Starter weight:</label>
+    <input type="text" id="startersWeight" th:field="*{startersWeight}">
+    <br>
+
+    <label for="mainCourse">Main Course:</label>
+    <select id="mainCourse" th:field="*{dish}">
+        <option th:each="dish : ${mainCourse}" th:value="${dish.getName()}" th:text="${dish.getName()}"></option>
+    </select>
+    <label for="mainCourseWeight"> Main course weight:</label>
+    <input type="text" id="mainCourseWeight" th:field="*{mainCourseWeight}">
+    <br>
+
+    <label for="desserts">Desert:</label>
+    <select id="desserts" th:field="*{dessert}">
+        <option th:each="dessert : ${desserts}" th:value="${dessert.getName()}" th:text="${dessert.getName()}"></option>
+    </select>
+    <label for="dessertWeight"> Dessert weight:</label>
+    <input type="text" id="dessertWeight" th:field="*{dessertWeight}">
+    <br>
+
+    <label for="beverages">Drink:</label>
+    <select id="beverages" th:field="*{beverage}">
+        <option th:each="beverage : ${beverages}" th:value="${beverage.getName()}" th:text="${beverage.getName()}"></option>
+    </select>
+    <label for="amountDrank"> Amount drank:</label>
+    <input type="text" id="amountDrank" th:field="*{amountDrank}">
+    <br>
+
+    <button type="submit">Calculate calories</button>
+
+</form>
+
+</body>
+</html>
