@@ -13,6 +13,7 @@
 <form th:object="${formMenuBean}" th:action="@{/}" th:method="post">
     <label for="starters">Starter:</label>
     <select id="starters" th:field="*{starter}" >
+        <option value="none">None</option>
         <option th:each="starter : ${starters}" th:value="${starter.getName()}" th:text="${starter.getName()}"></option>
     </select>
     <label for="startersWeight"> Starter weight:</label>
@@ -21,6 +22,7 @@
 
     <label for="mainCourse">Main Course:</label>
     <select id="mainCourse" th:field="*{dish}">
+        <option value="none">None</option>
         <option th:each="dish : ${mainCourse}" th:value="${dish.getName()}" th:text="${dish.getName()}"></option>
     </select>
     <label for="mainCourseWeight"> Main course weight:</label>
@@ -29,6 +31,7 @@
 
     <label for="desserts">Desert:</label>
     <select id="desserts" th:field="*{dessert}">
+        <option value="none">None</option>
         <option th:each="dessert : ${desserts}" th:value="${dessert.getName()}" th:text="${dessert.getName()}"></option>
     </select>
     <label for="dessertWeight"> Dessert weight:</label>
@@ -37,6 +40,7 @@
 
     <label for="beverages">Drink:</label>
     <select id="beverages" th:field="*{beverage}">
+        <option value="none">None</option>
         <option th:each="beverage : ${beverages}" th:value="${beverage.getName()}" th:text="${beverage.getName()}"></option>
     </select>
     <label for="amountDrank"> Amount drank:</label>

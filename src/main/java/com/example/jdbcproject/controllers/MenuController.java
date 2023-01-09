@@ -79,10 +79,22 @@ public class MenuController {
 
         Drink drink = drinkRepository.findDrinkByName(formMenuBean.getBeverage());
 
-        totalCalories += starter.getCalories()*Integer.parseInt(formMenuBean.getStartersWeight())/100;
-        totalCalories += mainDish.getCalories()*Integer.parseInt(formMenuBean.getMainCourseWeight())/100;
-        totalCalories += dessert.getCalories()*Integer.parseInt(formMenuBean.getDessertWeight())/100;
-        totalCalories += drink.getCalories()*Integer.parseInt(formMenuBean.getAmountDrank())/100;
+        try {
+            if (starter != null) {
+                totalCalories += starter.getCalories() * Integer.parseInt(formMenuBean.getStartersWeight()) / 100;
+            }
+            if (mainDish != null) {
+                totalCalories += mainDish.getCalories() * Integer.parseInt(formMenuBean.getMainCourseWeight()) / 100;
+            }
+            if (dessert != null) {
+                totalCalories += dessert.getCalories() * Integer.parseInt(formMenuBean.getDessertWeight()) / 100;
+            }
+            if (drink != null) {
+                totalCalories += drink.getCalories() * Integer.parseInt(formMenuBean.getAmountDrank()) / 100;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("no fucken numbers ma men or entered letters");
+        }
 
         System.out.println(totalCalories);
 
